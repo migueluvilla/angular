@@ -1,0 +1,31 @@
+
+<div class="card">
+  <div class="card-header rigth">
+     <a class="btn btn-success" routerLink="/add-employ/"> Agregar un nuevo usuario </a>
+  </div>
+  <div class="card-body center">
+    <h1>Lista de Usuarios</h1>
+    <table class="table table-light">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let usuario of Usuarios; let iControl=index">
+          <td>{{usuario.id}}</td>
+          <td>{{usuario.nombre}}</td>
+          <td>{{usuario.correo}}</td>
+          <td>
+            <a class="btn btn-info" routerLink="/edit-employ/{{usuario.id}}"> Editar </a>    &nbsp;|&nbsp;
+            <a class="btn btn-danger" (click)="borrarUsuario(usuario.id, iControl)" role="button"> Borrar </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
